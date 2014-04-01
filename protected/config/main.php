@@ -32,6 +32,10 @@ return array(
 
 	// application components
 	'components'=>array(
+			'navergeocode' => array(
+					'class' => 'application.extensions.navergeocode.NaverGeocode',
+			),
+			
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -72,10 +76,23 @@ return array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
 				),
+				
 				// uncomment the following to show log messages on web pages
 				/*
 				array(
-					'class'=>'CWebLogRoute',
+					 'class'=>'CWebLogRoute',
+				        //
+				        // I include *trace* for the 
+				        // sake of the example, you can include
+				        // more levels separated by commas
+				    'levels'=>'trace',
+				        //
+				        // I include *vardump* but you
+				        // can include more separated by commas
+				    'categories'=>'vardump',
+				        //
+				        // This is self-explanatory right?
+				    'showInFireBug'=>true
 				),
 				*/
 			),
