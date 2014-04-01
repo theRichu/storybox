@@ -76,7 +76,9 @@ class User extends CActiveRecord {
 	public function relations() {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array ();
+		return array (
+		'tblPlaces' => array(self::MANY_MANY, 'Place', 'tbl_user_has_place(user_id, place_id)'),
+		);
 	}
 	
 	/**
