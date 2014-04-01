@@ -1,0 +1,382 @@
+2014/04/01 12:05:44 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB
+2014/04/01 12:05:44 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB.
+2014/04/01 12:05:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB' in /var/www/YiiRoot/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/YiiRoot/framework/db/CDbCommand.php(1324): CDbCommand->execute()
+#1 /var/www/YiiRoot/framework/db/CDbMigration.php(229): CDbCommand->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#2 /var/www/stroybox/protected/migrations/m140401_025559_create_user_table.php(17): CDbMigration->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#3 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(385): m140401_025559_create_user_table->up()
+#4 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140401_025559_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/YiiRoot/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/YiiRoot/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/YiiRoot/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/YiiRoot/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#10 /var/www/YiiRoot/framework/yiic.php(33): CApplication->run()
+#11 /var/www/stroybox/protected/yiic.php(7): require_once('/var/www/YiiRoo...')
+#12 /var/www/stroybox/protected/yiic(4): require_once('/var/www/stroyb...')
+#13 {main}
+---
+2014/04/01 12:07:55 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'sb_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB
+2014/04/01 12:07:55 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'sb_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB.
+2014/04/01 12:07:55 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'sb_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB' in /var/www/YiiRoot/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/YiiRoot/framework/db/CDbCommand.php(1324): CDbCommand->execute()
+#1 /var/www/YiiRoot/framework/db/CDbMigration.php(229): CDbCommand->createTable('sb_user', Array, 'ENGINE=InnoDB')
+#2 /var/www/stroybox/protected/migrations/m140401_025559_create_user_table.php(17): CDbMigration->createTable('sb_user', Array, 'ENGINE=InnoDB')
+#3 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(385): m140401_025559_create_user_table->up()
+#4 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140401_025559_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/YiiRoot/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/YiiRoot/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/YiiRoot/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/YiiRoot/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#10 /var/www/YiiRoot/framework/yiic.php(33): CApplication->run()
+#11 /var/www/stroybox/protected/yiic.php(7): require_once('/var/www/YiiRoo...')
+#12 /var/www/stroybox/protected/yiic(4): require_once('/var/www/stroyb...')
+#13 {main}
+---
+2014/04/01 12:10:27 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'sb_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB
+2014/04/01 12:10:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'sb_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB.
+2014/04/01 12:10:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'sb_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB' in /var/www/YiiRoot/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/YiiRoot/framework/db/CDbCommand.php(1324): CDbCommand->execute()
+#1 /var/www/YiiRoot/framework/db/CDbMigration.php(229): CDbCommand->createTable('sb_user', Array, 'ENGINE=InnoDB')
+#2 /var/www/stroybox/protected/migrations/m140401_025559_create_user_table.php(17): CDbMigration->createTable('sb_user', Array, 'ENGINE=InnoDB')
+#3 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(385): m140401_025559_create_user_table->up()
+#4 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140401_025559_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/YiiRoot/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/YiiRoot/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/YiiRoot/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/YiiRoot/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#10 /var/www/YiiRoot/framework/yiic.php(33): CApplication->run()
+#11 /var/www/stroybox/protected/yiic.php(7): require_once('/var/www/YiiRoo...')
+#12 /var/www/stroybox/protected/yiic(4): require_once('/var/www/stroyb...')
+#13 {main}
+---
+2014/04/01 12:12:41 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'sb_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB
+2014/04/01 12:12:41 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'sb_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB.
+2014/04/01 12:12:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'sb_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB' in /var/www/YiiRoot/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/YiiRoot/framework/db/CDbCommand.php(1324): CDbCommand->execute()
+#1 /var/www/YiiRoot/framework/db/CDbMigration.php(229): CDbCommand->createTable('sb_user', Array, 'ENGINE=InnoDB')
+#2 /var/www/stroybox/protected/migrations/m140401_025559_create_user_table.php(17): CDbMigration->createTable('sb_user', Array, 'ENGINE=InnoDB')
+#3 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(385): m140401_025559_create_user_table->up()
+#4 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140401_025559_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/YiiRoot/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/YiiRoot/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/YiiRoot/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/YiiRoot/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#10 /var/www/YiiRoot/framework/yiic.php(33): CApplication->run()
+#11 /var/www/stroybox/protected/yiic.php(7): require_once('/var/www/YiiRoo...')
+#12 /var/www/stroybox/protected/yiic(4): require_once('/var/www/stroyb...')
+#13 {main}
+---
+2014/04/01 12:14:16 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB
+2014/04/01 12:14:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB.
+2014/04/01 12:14:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB' in /var/www/YiiRoot/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/YiiRoot/framework/db/CDbCommand.php(1324): CDbCommand->execute()
+#1 /var/www/YiiRoot/framework/db/CDbMigration.php(229): CDbCommand->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#2 /var/www/stroybox/protected/migrations/m140401_025559_create_user_table.php(17): CDbMigration->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#3 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(385): m140401_025559_create_user_table->up()
+#4 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140401_025559_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/YiiRoot/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/YiiRoot/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/YiiRoot/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/YiiRoot/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#10 /var/www/YiiRoot/framework/yiic.php(33): CApplication->run()
+#11 /var/www/stroybox/protected/yiic.php(7): require_once('/var/www/YiiRoo...')
+#12 /var/www/stroybox/protected/yiic(4): require_once('/var/www/stroyb...')
+#13 {main}
+---
+2014/04/01 12:14:48 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB
+2014/04/01 12:14:48 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB.
+2014/04/01 12:14:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB' in /var/www/YiiRoot/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/YiiRoot/framework/db/CDbCommand.php(1324): CDbCommand->execute()
+#1 /var/www/YiiRoot/framework/db/CDbMigration.php(229): CDbCommand->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#2 /var/www/stroybox/protected/migrations/m140401_025559_create_user_table.php(17): CDbMigration->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#3 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(385): m140401_025559_create_user_table->up()
+#4 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140401_025559_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/YiiRoot/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/YiiRoot/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/YiiRoot/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/YiiRoot/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#10 /var/www/YiiRoot/framework/yiic.php(33): CApplication->run()
+#11 /var/www/stroybox/protected/yiic.php(7): require_once('/var/www/YiiRoo...')
+#12 /var/www/stroybox/protected/yiic(4): require_once('/var/www/stroyb...')
+#13 {main}
+---
+2014/04/01 13:00:57 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB
+2014/04/01 13:00:57 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB.
+2014/04/01 13:00:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE 'tbl_user' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"username" varchar(255) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	"create_time" datetime DEFAULT CURRENT_TIMESTAMP,
+	"last_login_time" datetime DEFAULT NULL,
+	"update_time" datetime DEFAULT NULL,
+	"mobile" varchar(255) DEFAULT NULL,
+	"phone" varchar(255) DEFAULT NULL
+) ENGINE=InnoDB' in /var/www/YiiRoot/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/YiiRoot/framework/db/CDbCommand.php(1324): CDbCommand->execute()
+#1 /var/www/YiiRoot/framework/db/CDbMigration.php(229): CDbCommand->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#2 /var/www/storybox/protected/migrations/m140401_025559_create_user_table.php(17): CDbMigration->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#3 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(385): m140401_025559_create_user_table->up()
+#4 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140401_025559_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/YiiRoot/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/YiiRoot/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/YiiRoot/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/YiiRoot/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#10 /var/www/YiiRoot/framework/yiic.php(33): CApplication->run()
+#11 /var/www/storybox/protected/yiic.php(7): require_once('/var/www/YiiRoo...')
+#12 /var/www/storybox/protected/yiic(4): require_once('/var/www/storyb...')
+#13 {main}
+---
+2014/04/01 13:01:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'storybox.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2014/04/01 13:01:41 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1067 Invalid default value for 'create_time'. The SQL statement executed was: CREATE TABLE `tbl_user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`username` varchar(255) NOT NULL,
+	`email` varchar(255) NOT NULL,
+	`password` varchar(255) NOT NULL,
+	`create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+	`last_login_time` datetime DEFAULT NULL,
+	`update_time` datetime DEFAULT NULL,
+	`mobile` varchar(255) DEFAULT NULL,
+	`phone` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB.
+2014/04/01 13:01:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1067 Invalid default value for 'create_time'. The SQL statement executed was: CREATE TABLE `tbl_user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`username` varchar(255) NOT NULL,
+	`email` varchar(255) NOT NULL,
+	`password` varchar(255) NOT NULL,
+	`create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+	`last_login_time` datetime DEFAULT NULL,
+	`update_time` datetime DEFAULT NULL,
+	`mobile` varchar(255) DEFAULT NULL,
+	`phone` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB' in /var/www/YiiRoot/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/YiiRoot/framework/db/CDbCommand.php(1324): CDbCommand->execute()
+#1 /var/www/YiiRoot/framework/db/CDbMigration.php(229): CDbCommand->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#2 /var/www/storybox/protected/migrations/m140401_025559_create_user_table.php(17): CDbMigration->createTable('tbl_user', Array, 'ENGINE=InnoDB')
+#3 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(385): m140401_025559_create_user_table->up()
+#4 /var/www/YiiRoot/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140401_025559_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/YiiRoot/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/YiiRoot/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/YiiRoot/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/YiiRoot/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#10 /var/www/YiiRoot/framework/yiic.php(33): CApplication->run()
+#11 /var/www/storybox/protected/yiic.php(7): require_once('/var/www/YiiRoo...')
+#12 /var/www/storybox/protected/yiic(4): require_once('/var/www/storyb...')
+#13 {main}
+---
