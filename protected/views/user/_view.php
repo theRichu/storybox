@@ -1,47 +1,34 @@
-<?php
-/* @var $this UserController */
-/* @var $data User */
-?>
-
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('id')); ?>:
+	<?php echo GxHtml::link(GxHtml::encode($data->id), array('view', 'id' => $data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('username')); ?>:</b>
-	<?php echo CHtml::encode($data->username); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('username')); ?>:
+	<?php echo GxHtml::encode($data->username); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
-	<?php echo CHtml::encode($data->email); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('email')); ?>:
+	<?php echo GxHtml::encode($data->email); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('password')); ?>:</b>
-	<?php echo CHtml::encode($data->password); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('password')); ?>:
+	<?php echo GxHtml::encode($data->password); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>
-	<?php echo CHtml::encode($data->create_time); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('create_time')); ?>:
+	<?php echo GxHtml::encode($data->create_time); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('last_login_time')); ?>:</b>
-	<?php echo CHtml::encode($data->last_login_time); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('last_login_time')); ?>:
+	<?php echo GxHtml::encode($data->last_login_time); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('update_time')); ?>:</b>
-	<?php echo CHtml::encode($data->update_time); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('update_time')); ?>:
+	<?php echo GxHtml::encode($data->update_time); ?>
 	<br />
-
 	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('mobile')); ?>:</b>
-	<?php echo CHtml::encode($data->mobile); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('mobile')); ?>:
+	<?php echo GxHtml::encode($data->mobile); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('phone')); ?>:</b>
-	<?php echo CHtml::encode($data->phone); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('phone')); ?>:
+	<?php echo GxHtml::encode($data->phone); ?>
 	<br />
-
 	*/ ?>
 
 </div>

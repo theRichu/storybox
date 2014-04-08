@@ -45,9 +45,18 @@ $this->breadcrumbs=array(
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Login'); ?>
 	</div>
-	<p><?php echo CHtml::link('Sign In',array('user/create')); ?></p>
-	
-	user/create
+	<?php echo CHtml::link('Sign In',array('user/create')); ?>
+
+	<h3>Click the logo to log in with it here:</h3>
+<?php
+    $this->widget('ext.eauth.EAuthWidget', array('action' => 'site/login'));
+?>
+<?php
+    if (Yii::app()->user->hasFlash('error')) {
+        echo '<div class="error">'.Yii::app()->user->getFlash('error').'</div>';
+    }
+?>
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+

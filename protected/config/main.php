@@ -16,6 +16,12 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+	  'ext.giix-components.*',
+	  'ext.eoauth.*',
+	  'ext.eoauth.lib.*',
+	  'ext.lightopenid.*',
+	  'ext.eauth.*',
+	  'ext.eauth.services.*',
 	),
 
 	'modules'=>array(
@@ -26,6 +32,9 @@ return array(
 			'password'=>'admin',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('14.39.156.111','::1'),
+		  'generatorPaths' => array(
+		    'ext.giix-core', // giix generators
+		  ),
 		),
 		
 	),
@@ -34,6 +43,41 @@ return array(
 	'components'=>array(
 			'navergeocode' => array(
 					'class' => 'application.extensions.navergeocode.NaverGeocode',
+			),
+			'loid' => array(
+			  //alias to dir, where you unpacked extension
+			  'class' => 'application.extensions.lightopenid.loid',
+			),
+			'eauth' => array(
+			  'class' => 'ext.eauth.EAuth',
+			  'popup' => true, // Use the popup window instead of redirecting.
+			  'cache' => false, // Cache component name or false to disable cache. Defaults to 'cache'.
+			  'cacheExpire' => 0, // Cache lifetime. Defaults to 0 - means unlimited.
+			  'services' => array( // You can change the providers and their classes.
+			    'google' => array(
+			      'class' => 'GoogleOpenIDService',
+			      //'realm' => '*.example.org',
+			    ),
+			    'twitter' => array(
+			      // register your app here: https://dev.twitter.com/apps/new
+			      'class' => 'TwitterOAuthService',
+			      'key' => '...',
+			      'secret' => '...',
+			    ),
+			    'google_oauth' => array(
+			      // register your app here: https://code.google.com/apis/console/
+			      'class' => 'GoogleOAuthService',
+			      'client_id' => '...',
+			      'client_secret' => '...',
+			      'title' => 'Google (OAuth)',
+			    ),
+			    'facebook' => array(
+			      // register your app here: https://developers.facebook.com/apps/
+			      'class' => 'FacebookOAuthService',
+			      'client_id' => '632942866776797',
+			      'client_secret' => '51ec789cc1458acc8e1913cd802672c8',
+			    ),
+			  ),
 			),
 			
 		'user'=>array(
@@ -78,7 +122,7 @@ return array(
 				),
 				
 				// uncomment the following to show log messages on web pages
-				/*
+				
 				array(
 					 'class'=>'CWebLogRoute',
 				        //
@@ -94,7 +138,7 @@ return array(
 				        // This is self-explanatory right?
 				    'showInFireBug'=>true
 				),
-				*/
+				
 			),
 		),
 	),
