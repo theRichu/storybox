@@ -74,9 +74,29 @@ class RoomOptionController extends Controller
 		{
 			$model->attributes=$_POST['RoomOption'];
 			if($model->save())
+			  //Add from here
+			  if(Yii::app()->request->isAjaxRequest)
+			  {
+			  
+			    echo CJSON::encode(array(
+			      'status'=>'success',
+			      'div'=>"Successfully Added.."
+			    ));
+			    exit;
+			  }
+			  // Addition end
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
+		//Add from here
+		if(Yii::app()->request->isAjaxRequest)
+		{
+		  echo CJSON::encode(array(
+		    'status'=>'failure',
+		    'div'=>$this->renderPartial('_form', array('model'=>$model), true)
+		  ));
+		  exit;
+		}
+		// Addition end
 		$this->render('create',array(
 			'model'=>$model,
 		));

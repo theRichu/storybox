@@ -4,6 +4,9 @@
 <?php $form = $this->beginWidget('GxActiveForm', array(
 	'id' => 'room-form',
 	'enableAjaxValidation' => true,
+  'htmlOptions' => array(
+        'enctype' => 'multipart/form-data',
+    ),
 ));
 ?>
 
@@ -48,6 +51,17 @@
 		<?php echo $form->textField($model, 'workto'); ?>
 		<?php echo $form->error($model,'workto'); ?>
 		</div><!-- row -->
+		
+		<div class="row">
+        <?php echo $form->labelEx($model,'image'); ?>
+        <?php echo CHtml::activeFileField($model, 'image'); ?>  // by this we can upload image
+        <?php echo $form->error($model,'image'); ?>
+    </div>
+    <?php if($model->isNewRecord!='1'){ ?>
+    <div class="row">
+         <?php echo CHtml::image(Yii::app()->request->baseUrl.'/upload/room/'.$model->image,"image",array("width"=>200)); ?>  // Image shown here if page is update page
+    </div>
+    		
 
 		<label><?php echo GxHtml::encode($model->getRelationLabel('roomCharges')); ?></label>
 		<?php echo $form->checkBoxList($model, 'roomCharges', GxHtml::encodeEx(GxHtml::listDataEx(RoomCharge::model()->findAllAttributes(null, true)), false, true)); ?>

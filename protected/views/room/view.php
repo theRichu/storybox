@@ -39,10 +39,80 @@ array(
 
 <br />
 <h1>Room Charges</h1>
-<?php $this->widget('zii.widgets.CListView', array(
-'dataProvider'=>$roomChargeDataProvider,
-'itemView'=>'/roomCharge/_view',
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+'dataProvider'=>$roomChargeDataProvider
+  , 'columns'=>array(
+    'price'
+    , 'description'
+    , array(
+      'class'=>'CButtonColumn'
+      , 'viewButtonUrl'=>'Yii::app()->createUrl("/roomCharge/view", array("id"=>$data["id"]))'
+      , 'updateButtonUrl'=>'Yii::app()->createUrl("/roomCharge/update", array("id"=>$data["id"]))'
+      , 'deleteButtonUrl'=>'Yii::app()->createUrl("/roomCharge/delete", array("id"=>$data["id"]))'
+    )
+  )
+//'itemView'=>'/roomCharge/_view',
 )); ?>
+
+// Bootstrap button
+<?php
+
+$this->widget(
+    'bootstrap.widgets.TbButton',
+    array(
+        'label' => 'Create',
+        'type' => 'primary',
+        'url'=>'#',
+        'htmlOptions'=>array(
+        'data-toggle' => 'modal',
+        'data-target' => '#CView',
+        'onclick'=>"{ CUrl='".Yii::app()->createUrl('roomCharge/create')."'; CHeader='Add new client'; CViewForm(); return false; }"
+        ),
+    )
+);?>
+<?php 
+$this->beginWidget('bootstrap.widgets.TbModal', array('id' => 'CView')); 
+?>
+<div>
+<a data-dismiss="modal">&times;</a>
+<h4 id="content_header"></h4>
+</div>
+<div>
+</div>    
+<?php $this->endWidget(); ?>
+
+<script type="text/javascript">
+var CUrl;
+function CViewForm()
+{
+$('#content_header').html(CHeader);
+
+    <?php echo CHtml::ajax(array(
+            'url'=>  "js:CUrl",
+            'data'=> "js:$(this).serialize()",
+            'type'=>'post',
+            'dataType'=>'json',
+            'success'=>"function(data)
+            {
+                if (data.status == 'failure')
+                {
+                    $('#CView div.modal-body').html(data.div);
+                    $('#CView div.modal-body form').submit(CViewForm);
+                }
+                else
+                {
+                   $('#CView div.modal-body').html(data.div);
+                   setTimeout(\"$('#CView').modal('hide') \",2000);
+                   $.fn.yiiGridView.update('client-grid');
+                }
+
+            } ",
+            ))?>;
+    return false;
+
+}
+</script>
+
 
 <br />
 <h1>Room Options</h1>

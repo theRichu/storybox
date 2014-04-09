@@ -42,7 +42,7 @@ public function accessRules() {
 		      'params'=>array(':roomId'=>$this->loadModel($id,'Room')->id),
 		    ),
 		    'pagination'=>array(
-		      'pageSize'=>1,
+		      'pageSize'=>10,
 		    ),
 		  ));
 		$roomChargeDataProvider=new CActiveDataProvider('RoomCharge',array(
@@ -51,7 +51,7 @@ public function accessRules() {
 		    'params'=>array(':roomId'=>$this->loadModel($id,'Room')->id),
 		  ),
 		  'pagination'=>array(
-		    'pageSize'=>1,
+		    'pageSize'=>10,
 		  ),
 		));
 		

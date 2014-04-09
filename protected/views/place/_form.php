@@ -20,17 +20,29 @@
 		</div><!-- row -->
 		<div class="row">
 		<?php echo $form->labelEx($model,'address'); ?>
-		<?php echo $form->textField($model, 'address', array('maxlength' => 255)); ?>
+		<?php 
+		$this->widget('ext.RGmapPicker.RGmapPicker',
+                array(
+                    'title' => 'Address',
+                    'element_id' => 'Place',
+                    'map_width' => 670,
+                    'map_height' => 300,
+                    'map_latitude' => '37.54', # Your default position
+                    'map_longitude' => '126.96', # Your default position
+                    'map_location_name' => '대한민국 서울특별시 용산구',
+                )
+            );
+    ?>
 		<?php echo $form->error($model,'address'); ?>
+   <?php /* echo $form->textField($model, 'address', array('maxlength' => 255)); */ ?> 
 		</div><!-- row -->
-		<div class="row">
+ 		
+ 		<div class="row">
 		<?php echo $form->labelEx($model,'description'); ?>
 		<?php echo $form->textArea($model, 'description'); ?>
 		<?php echo $form->error($model,'description'); ?>
 		</div><!-- row -->
 
-		<label><?php echo GxHtml::encode($model->getRelationLabel('rooms')); ?></label>
-		<?php echo $form->checkBoxList($model, 'rooms', GxHtml::encodeEx(GxHtml::listDataEx(Room::model()->findAllAttributes(null, true)), false, true)); ?>
 		<label><?php echo GxHtml::encode($model->getRelationLabel('tblUsers')); ?></label>
 		<?php echo $form->checkBoxList($model, 'tblUsers', GxHtml::encodeEx(GxHtml::listDataEx(User::model()->findAllAttributes(null, true)), false, true)); ?>
 

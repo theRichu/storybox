@@ -41,7 +41,7 @@ if(($model->map_lat) && ($model->map_lag)){
   $gMap->width = '100%';
   $gMap->height = 300;
   $gMap->zoom = 13;
-  $gMap->setCenter($model->map_lag, $model->map_lat);
+  $gMap->setCenter($model->map_lat, $model->map_lag);
   
   $info_box = new EGMapInfoBox('<div style="color:#fff;border: 1px solid black; margin-top: 8px; background: #000; padding: 5px;">'.$model->name.'<br/>'.$model->address.'</div>');
   
@@ -60,7 +60,7 @@ if(($model->map_lat) && ($model->map_lag)){
   // with the second info box, we don't need to
   // set its properties as we are sharing a global
   // Create marker
-  $marker = new EGMapMarker($model->map_lag, $model->map_lat, array('title' => $model->name));
+  $marker = new EGMapMarker($model->map_lat, $model->map_lag, array('title' => $model->name));
   $marker->addHtmlInfoBox($info_box);
   
   $gMap->addMarker($marker);

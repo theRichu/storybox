@@ -45,12 +45,14 @@ public function accessRules() {
 				'tblUsers' => $_POST['Place']['tblUsers'] === '' ? null : $_POST['Place']['tblUsers'],
 				);
 
+			fb($model);
+			/*
 			Yii::import('application.extensions.navergeocode.NaverGeocode');
 			$geocode = new NaverGeocode;
 			$result=$geocode->getGeocode($model->address);
-			$model->map_lat=$result->item->point->x;
-			$model->map_lag=$result->item->point->y;
-			
+			$model->map_lat=$result->item->point->y;
+			$model->map_lag=$result->item->point->x;
+			*/
 			
 			if ($model->saveWithRelated($relatedData)) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -77,8 +79,8 @@ public function accessRules() {
 			Yii::import('application.extensions.navergeocode.NaverGeocode');
 			$geocode = new NaverGeocode;
 			$result=$geocode->getGeocode($model->address);
-			$model->map_lat=$result->item->point->x;
-			$model->map_lag=$result->item->point->y;
+			$model->map_lat=$result->item->point->y;
+			$model->map_lag=$result->item->point->x;
 			
 			if ($model->saveWithRelated($relatedData)) {
 				$this->redirect(array('view', 'id' => $model->id));

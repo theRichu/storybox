@@ -10,7 +10,10 @@ return array(
 	'name'=>'Storybox',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array(
+	  'log',
+	  'bootstrap',
+	),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -22,6 +25,7 @@ return array(
 	  'ext.lightopenid.*',
 	  'ext.eauth.*',
 	  'ext.eauth.services.*',
+	  'ext.bootstrap.*',
 	),
 
 	'modules'=>array(
@@ -34,6 +38,7 @@ return array(
 			'ipFilters'=>array('14.39.156.111','::1'),
 		  'generatorPaths' => array(
 		    'ext.giix-core', // giix generators
+		    'bootstrap.gii',
 		  ),
 		),
 		
@@ -48,6 +53,9 @@ return array(
 			  //alias to dir, where you unpacked extension
 			  'class' => 'application.extensions.lightopenid.loid',
 			),
+			'bootstrap'=>array(
+			  'class'=>'ext.bootstrap.components.Bootstrap',
+			),				
 			'eauth' => array(
 			  'class' => 'ext.eauth.EAuth',
 			  'popup' => true, // Use the popup window instead of redirecting.
@@ -88,6 +96,7 @@ return array(
 		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+			'showScriptName'=>false,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
