@@ -11,7 +11,7 @@ public function filters() {
 public function accessRules() {
 	return array(
 			array('allow',
-				'actions'=>array('index','view'),
+				'actions'=>array('create','view'),
 				'users'=>array('*'),
 				),
 			array('allow', 
@@ -19,7 +19,7 @@ public function accessRules() {
 				'users'=>array('@'),
 				),
 			array('allow', 
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete', 'index'),
 				'users'=>array('admin'),
 				),
 			array('deny', 

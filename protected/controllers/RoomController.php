@@ -54,11 +54,21 @@ public function accessRules() {
 		    'pageSize'=>10,
 		  ),
 		));
+		$roomImageDataProvider=new CActiveDataProvider('RoomImage',array(
+		  'criteria'=>array(
+		    'condition'=>'room_id=:roomId',
+		    'params'=>array(':roomId'=>$this->loadModel($id,'Room')->id),
+		  ),
+		  'pagination'=>array(
+		    'pageSize'=>10,
+		  ),
+		));
 		
 		$this->render('view',array(
 		  'model'=>$this->loadModel($id, 'Room'),
 		  'roomOptionDataProvider'=>$roomOptionDataProvider,
 		  'roomChargeDataProvider'=>$roomChargeDataProvider,
+		  'roomImageDataProvider'=>$roomImageDataProvider,
 		));
 		
 	}

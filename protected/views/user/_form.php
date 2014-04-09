@@ -29,21 +29,6 @@
 		<?php echo $form->error($model,'password'); ?>
 		</div><!-- row -->
 		<div class="row">
-		<?php echo $form->labelEx($model,'create_time'); ?>
-		<?php echo $form->textField($model, 'create_time'); ?>
-		<?php echo $form->error($model,'create_time'); ?>
-		</div><!-- row -->
-		<div class="row">
-		<?php echo $form->labelEx($model,'last_login_time'); ?>
-		<?php echo $form->textField($model, 'last_login_time'); ?>
-		<?php echo $form->error($model,'last_login_time'); ?>
-		</div><!-- row -->
-		<div class="row">
-		<?php echo $form->labelEx($model,'update_time'); ?>
-		<?php echo $form->textField($model, 'update_time'); ?>
-		<?php echo $form->error($model,'update_time'); ?>
-		</div><!-- row -->
-		<div class="row">
 		<?php echo $form->labelEx($model,'mobile'); ?>
 		<?php echo $form->textField($model, 'mobile', array('maxlength' => 255)); ?>
 		<?php echo $form->error($model,'mobile'); ?>

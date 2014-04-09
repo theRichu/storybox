@@ -29,9 +29,25 @@ public function accessRules() {
 }
 
 	public function actionView($id) {
-		$this->render('view', array(
+	/*	$this->render('view', array(
 			'model' => $this->loadModel($id, 'Place'),
-		));
+		));*/
+	  
+
+	  $roomDataProvider=new CActiveDataProvider('Room',array(
+	    'criteria'=>array(
+	      'condition'=>'place_id=:place_id',
+	      'params'=>array(':place_id'=>$this->loadModel($id,'Place')->id),
+	    ),
+	    'pagination'=>array(
+	      'pageSize'=>10,
+	    ),
+	  ));
+	  
+	  $this->render('view',array(
+	    'model'=>$this->loadModel($id, 'Place'),
+	    'roomDataProvider'=>$roomDataProvider,
+	  ));
 	}
 
 	public function actionCreate() {
@@ -45,15 +61,13 @@ public function accessRules() {
 				'tblUsers' => $_POST['Place']['tblUsers'] === '' ? null : $_POST['Place']['tblUsers'],
 				);
 
-			fb($model);
-			/*
-			Yii::import('application.extensions.navergeocode.NaverGeocode');
-			$geocode = new NaverGeocode;
-			$result=$geocode->getGeocode($model->address);
-			$model->map_lat=$result->item->point->y;
-			$model->map_lag=$result->item->point->x;
-			*/
-			
+			if(!($model->map_lat) && !($model->map_lag)){
+  			Yii::import('application.extensions.navergeocode.NaverGeocode');
+  			$geocode = new NaverGeocode;
+  			$result=$geocode->getGeocode($model->address);
+  			$model->map_lat=$result->item->point->y;
+  			$model->map_lag=$result->item->point->x;
+			}
 			if ($model->saveWithRelated($relatedData)) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
@@ -76,12 +90,13 @@ public function accessRules() {
 				'tblUsers' => $_POST['Place']['tblUsers'] === '' ? null : $_POST['Place']['tblUsers'],
 				);
 			
-			Yii::import('application.extensions.navergeocode.NaverGeocode');
-			$geocode = new NaverGeocode;
-			$result=$geocode->getGeocode($model->address);
-			$model->map_lat=$result->item->point->y;
-			$model->map_lag=$result->item->point->x;
-			
+			if(!($model->map_lat) && !($model->map_lag)){
+  			Yii::import('application.extensions.navergeocode.NaverGeocode');
+  			$geocode = new NaverGeocode;
+  			$result=$geocode->getGeocode($model->address);
+  			$model->map_lat=$result->item->point->y;
+  			$model->map_lag=$result->item->point->x;
+			}
 			if ($model->saveWithRelated($relatedData)) {
 				$this->redirect(array('view', 'id' => $model->id));
 			}

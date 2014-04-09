@@ -24,14 +24,3 @@ $this->menu=array(
 'description',
 	),
 )); ?>
-
-<h2><?php echo GxHtml::encode($model->getRelationLabel('roomOptions')); ?></h2>
-<?php
-	echo GxHtml::openTag('ul');
-	foreach($model->roomOptions as $relatedModel) {
-		echo GxHtml::openTag('li');
-		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('roomOption/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
-		echo GxHtml::closeTag('li');
-	}
-	echo GxHtml::closeTag('ul');
-?>

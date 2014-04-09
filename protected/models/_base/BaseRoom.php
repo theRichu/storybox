@@ -57,6 +57,7 @@ abstract class BaseRoom extends GxActiveRecord {
 			'place' => array(self::BELONGS_TO, 'Place', 'place_id'),
 			'roomCharges' => array(self::HAS_MANY, 'RoomCharge', 'room_id'),
 			'roomOptions' => array(self::HAS_MANY, 'RoomOption', 'room_id'),
+		  'roomImages' => array(self::HAS_MANY, 'RoomImage', 'room_id'),
 		);
 	}
 

@@ -34,7 +34,7 @@
             );
     ?>
 		<?php echo $form->error($model,'address'); ?>
-   <?php /* echo $form->textField($model, 'address', array('maxlength' => 255)); */ ?> 
+
 		</div><!-- row -->
  		
  		<div class="row">

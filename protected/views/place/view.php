@@ -16,22 +16,6 @@ $this->menu=array(
 ?>
 
 <h1><?php echo GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data' => $model,
-	'attributes' => array(
-'id',
-'name',
-'address',
-'description',
-'create_time',
-'create_user_id',
-'update_time',
-'update_user_id',
-'map_lat',
-'map_lag',
-	),
-)); ?>
 <?php 
 if(($model->map_lat) && ($model->map_lag)){
   Yii::import('ext.EGMAP.*');
@@ -39,7 +23,7 @@ if(($model->map_lat) && ($model->map_lag)){
   $gMap = new EGMap();
   $gMap->setJsName('test_map');
   $gMap->width = '100%';
-  $gMap->height = 300;
+  $gMap->height = '200';
   $gMap->zoom = 13;
   $gMap->setCenter($model->map_lat, $model->map_lag);
   
@@ -68,17 +52,30 @@ if(($model->map_lat) && ($model->map_lag)){
   $gMap->renderMap();
 }
 ?>
+<?php $this->widget('zii.widgets.CDetailView', array(
+	'data' => $model,
+	'attributes' => array(
+'id',
+'name',
+'address',
+'description',
+'create_time',
+'create_user_id',
+'update_time',
+'update_user_id',
+'map_lat',
+'map_lag',
+	),
+)); ?>
+
 
 <h2><?php echo GxHtml::encode($model->getRelationLabel('rooms')); ?></h2>
-<?php
-	echo GxHtml::openTag('ul');
-	foreach($model->rooms as $relatedModel) {
-		echo GxHtml::openTag('li');
-		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('room/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
-		echo GxHtml::closeTag('li');
-	}
-	echo GxHtml::closeTag('ul');
-?>
+<?php $this->widget('zii.widgets.CListView', array(
+    'dataProvider'=>$roomDataProvider,
+    'itemView'=>'/room/_view',
+)); ?>
+
+
 
 <h2><?php echo GxHtml::encode($model->getRelationLabel('tblUsers')); ?></h2>
 <?php

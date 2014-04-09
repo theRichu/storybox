@@ -8,6 +8,7 @@ $this->breadcrumbs = array(
 $this->menu=array(
 	array('label'=>Yii::t('app', 'List') . ' ' . $model->label(2), 'url'=>array('index')),
 	array('label'=>Yii::t('app', 'Create') . ' ' . $model->label(), 'url'=>array('create')),
+  array('label'=>Yii::t('app', 'Add Image') . ' ' . $model->label(), 'url'=>array('roomImage/create','pid'=>$model->id)),
   array('label'=>Yii::t('app', 'Add Charge') . ' ' . $model->label(), 'url'=>array('roomCharge/create','pid'=>$model->id)),
   array('label'=>Yii::t('app', 'Add Option') . ' ' . $model->label(), 'url'=>array('roomOption/create','pid'=>$model->id)),
 	array('label'=>Yii::t('app', 'Update') . ' ' . $model->label(), 'url'=>array('update', 'id' => $model->id)),
@@ -15,26 +16,31 @@ $this->menu=array(
 	array('label'=>Yii::t('app', 'Manage') . ' ' . $model->label(2), 'url'=>array('admin')),
 );
 ?>
-
+<br />
+<h1>Room Images</h1>
+<?php $this->widget('zii.widgets.CListView', array(
+    'dataProvider'=>$roomImageDataProvider,
+    'itemView'=>'/roomImage/_view',
+)); ?>
 <h1><?php echo Yii::t('app', 'View') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data' => $model,
 	'attributes' => array(
-'id',
-'name',
-'person',
-array(
-			'name' => 'place',
-			'type' => 'raw',
-			'value' => $model->place !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->place)), array('place/view', 'id' => GxActiveRecord::extractPkValue($model->place, true))) : null,
-			),
-'area',
-'areatype',
-'contactnumber',
-'workstart',
-'workto',
-	),
+  'id',
+  'name',
+  'person',
+  array(
+  			'name' => 'place',
+  			'type' => 'raw',
+  			'value' => $model->place !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->place)), array('place/view', 'id' => GxActiveRecord::extractPkValue($model->place, true))) : null,
+  			),
+  'area',
+  'areatype',
+  'contactnumber',
+  'workstart',
+  'workto',
+  	),
 )); ?>
 
 <br />
@@ -54,7 +60,6 @@ array(
 //'itemView'=>'/roomCharge/_view',
 )); ?>
 
-// Bootstrap button
 <?php
 
 $this->widget(
@@ -88,28 +93,27 @@ function CViewForm()
 $('#content_header').html(CHeader);
 
     <?php echo CHtml::ajax(array(
-            'url'=>  "js:CUrl",
-            'data'=> "js:$(this).serialize()",
-            'type'=>'post',
-            'dataType'=>'json',
-            'success'=>"function(data)
-            {
-                if (data.status == 'failure')
-                {
-                    $('#CView div.modal-body').html(data.div);
-                    $('#CView div.modal-body form').submit(CViewForm);
-                }
-                else
-                {
-                   $('#CView div.modal-body').html(data.div);
-                   setTimeout(\"$('#CView').modal('hide') \",2000);
-                   $.fn.yiiGridView.update('client-grid');
-                }
+      'url'=>  "js:CUrl",
+      'data'=> "js:$(this).serialize()",
+      'type'=>'post',
+      'dataType'=>'json',
+      'success'=>"function(data)
+      {
+          if (data.status == 'failure')
+          {
+              $('#CView div.modal-body').html(data.div);
+              $('#CView div.modal-body form').submit(CViewForm);
+          }
+          else
+          {
+             $('#CView div.modal-body').html(data.div);
+             setTimeout(\"$('#CView').modal('hide') \",2000);
+             $.fn.yiiGridView.update('client-grid');
+          }
 
-            } ",
-            ))?>;
+      } ",
+      ))?>;
     return false;
-
 }
 </script>
 
@@ -117,6 +121,8 @@ $('#content_header').html(CHeader);
 <br />
 <h1>Room Options</h1>
 <?php $this->widget('zii.widgets.CListView', array(
-'dataProvider'=>$roomOptionDataProvider,
-'itemView'=>'/roomOption/_view',
+    'dataProvider'=>$roomOptionDataProvider,
+    'itemView'=>'/roomOption/_view',
 )); ?>
+
+

@@ -86,8 +86,7 @@ abstract class BaseUser extends GxActiveRecord {
 	  else
 	    $id=1;
 	  if($this->isNewRecord)
-	    $this->create_user_id=$id;
-	  $this->update_user_id=$id;
+
 	  return parent::beforeSave();
 	}
 	/**

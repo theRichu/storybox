@@ -24,9 +24,6 @@
 		<?php echo $form->error($model,'description'); ?>
 		</div><!-- row -->
 
-		<label><?php echo GxHtml::encode($model->getRelationLabel('roomOptions')); ?></label>
-		<?php echo $form->checkBoxList($model, 'roomOptions', GxHtml::encodeEx(GxHtml::listDataEx(RoomOption::model()->findAllAttributes(null, true)), false, true)); ?>
-
 <?php
 echo GxHtml::submitButton(Yii::t('app', 'Save'));
 $this->endWidget();
