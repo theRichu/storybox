@@ -87,8 +87,8 @@ abstract class BaseRoomCharge extends GxActiveRecord {
 		return array(
 			'id' => Yii::t('app', 'ID'),
 			'room_id' => null,
-			'price' => Yii::t('app', 'Price'),
-			'description' => Yii::t('app', 'Description'),
+			'price' => Yii::t('app', '가격'),
+			'description' => Yii::t('app', '설명'),
 			'room' => null,
 		);
 	}

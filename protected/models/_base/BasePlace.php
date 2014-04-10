@@ -34,7 +34,7 @@ abstract class BasePlace extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'Place|Places', $n);
+		return Yii::t('app', '장소|장소들', $n);
 	}
 
 	public static function representingColumn() {
@@ -69,15 +69,15 @@ abstract class BasePlace extends GxActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => Yii::t('app', 'ID'),
-			'name' => Yii::t('app', 'Name'),
-			'address' => Yii::t('app', 'Address'),
-			'description' => Yii::t('app', 'Description'),
+			'name' => Yii::t('app', '이름'),
+			'address' => Yii::t('app', '주소'),
+			'description' => Yii::t('app', '설명'),
 			'create_time' => Yii::t('app', 'Create Time'),
 			'create_user_id' => Yii::t('app', 'Create User'),
 			'update_time' => Yii::t('app', 'Update Time'),
 			'update_user_id' => Yii::t('app', 'Update User'),
-			'map_lat' => Yii::t('app', 'Map Lat'),
-			'map_lag' => Yii::t('app', 'Map Lag'),
+			'map_lat' => Yii::t('app', '경도'),
+			'map_lag' => Yii::t('app', '위도'),
 			'rooms' => null,
 			'tblUsers' => null,
 		);
@@ -109,9 +109,11 @@ abstract class BasePlace extends GxActiveRecord {
 	      'updateAttribute' => 'update_time',
 	      'setUpdateOnCreate' => true,
 	    ),
+	    'ESaveRelatedBehavior' => array(
+	      'class' => 'application.components.ESaveRelatedBehavior'
+	    ),
 	  );
 	}
-	
 	
 	public function search() {
 		$criteria = new CDbCriteria;

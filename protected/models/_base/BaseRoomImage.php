@@ -96,9 +96,9 @@ abstract class BaseRoomImage extends GxActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => Yii::t('app', 'ID'),
-			'caption' => Yii::t('app', 'Caption'),
-			'content' => Yii::t('app', 'Content'),
-			'filename' => Yii::t('app', 'Filename'),
+			'caption' => Yii::t('app', '제목'),
+			'content' => Yii::t('app', '내용'),
+			'filename' => Yii::t('app', '파일명'),
 			'room_id' => null,
 			'create_time' => Yii::t('app', 'Create Time'),
 			'create_user_id' => Yii::t('app', 'Create User'),

@@ -1,19 +1,20 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('index'),
-	GxHtml::valueEx($model),
+	$model->label(2) => array('place/index'),
+  GxHtml::encode($model->place) => array('place/'.$model->place_id),
+  GxHtml::valueEx($model),
 );
 
 $this->menu=array(
-	array('label'=>Yii::t('app', 'List') . ' ' . $model->label(2), 'url'=>array('index')),
-	array('label'=>Yii::t('app', 'Create') . ' ' . $model->label(), 'url'=>array('create')),
-  array('label'=>Yii::t('app', 'Add Image') . ' ' . $model->label(), 'url'=>array('roomImage/create','pid'=>$model->id)),
-  array('label'=>Yii::t('app', 'Add Charge') . ' ' . $model->label(), 'url'=>array('roomCharge/create','pid'=>$model->id)),
-  array('label'=>Yii::t('app', 'Add Option') . ' ' . $model->label(), 'url'=>array('roomOption/create','pid'=>$model->id)),
-	array('label'=>Yii::t('app', 'Update') . ' ' . $model->label(), 'url'=>array('update', 'id' => $model->id)),
-	array('label'=>Yii::t('app', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>Yii::t('app', 'Manage') . ' ' . $model->label(2), 'url'=>array('admin')),
+	array('label'=>$model->label(2). ' ' .Yii::t('app', '더 보기') , 'url'=>array('index')),
+	array('label'=>$model->label(). ' ' .Yii::t('app', '등록하기') , 'url'=>array('create')),
+  array('label'=>$model->label(). ' ' .Yii::t('app', '사진 등록하기') , 'url'=>array('roomImage/create','pid'=>$model->id)),
+  array('label'=>$model->label(). ' ' .Yii::t('app', '금액 등록하기') , 'url'=>array('roomCharge/create','pid'=>$model->id)),
+  array('label'=>$model->label(). ' ' .Yii::t('app', '시설물 등록하기') , 'url'=>array('roomOption/create','pid'=>$model->id)),
+	array('label'=>$model->label(). ' ' .Yii::t('app', '정보 변경') , 'url'=>array('update', 'id' => $model->id)),
+	array('label'=>$model->label(). ' ' .Yii::t('app', '삭제') , 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>$model->label(2). ' ' .Yii::t('app', '관리하기') , 'url'=>array('admin')),
 );
 ?>
 <br />

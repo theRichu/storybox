@@ -32,7 +32,7 @@ abstract class BaseUser extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'User|Users', $n);
+		return Yii::t('app', '사용자|사용자들', $n);
 	}
 
 	public static function representingColumn() {
@@ -64,14 +64,14 @@ abstract class BaseUser extends GxActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => Yii::t('app', 'ID'),
-			'username' => Yii::t('app', 'Username'),
+			'username' => Yii::t('app', '이름'),
 			'email' => Yii::t('app', 'Email'),
 			'password' => Yii::t('app', 'Password'),
 			'create_time' => Yii::t('app', 'Create Time'),
 			'last_login_time' => Yii::t('app', 'Last Login Time'),
 			'update_time' => Yii::t('app', 'Update Time'),
-			'mobile' => Yii::t('app', 'Mobile'),
-			'phone' => Yii::t('app', 'Phone'),
+			'mobile' => Yii::t('app', '핸드폰'),
+			'phone' => Yii::t('app', '전화번호'),
 			'tblPlaces' => null,
 		);
 	}

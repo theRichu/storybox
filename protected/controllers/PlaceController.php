@@ -39,11 +39,15 @@ public function accessRules() {
 	      'condition'=>'place_id=:place_id',
 	      'params'=>array(':place_id'=>$this->loadModel($id,'Place')->id),
 	    ),
+	    'sort'=>array(
+	      'defaultOrder'=>'create_time DESC',
+	    ),
 	    'pagination'=>array(
 	      'pageSize'=>10,
 	    ),
 	  ));
 	  
+
 	  $this->render('view',array(
 	    'model'=>$this->loadModel($id, 'Place'),
 	    'roomDataProvider'=>$roomDataProvider,

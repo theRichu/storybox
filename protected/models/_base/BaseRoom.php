@@ -34,7 +34,7 @@ abstract class BaseRoom extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'Room|Rooms', $n);
+		return Yii::t('app', '강의실|강의실들', $n);
 	}
 
 	public static function representingColumn() {
@@ -69,14 +69,14 @@ abstract class BaseRoom extends GxActiveRecord {
 	public function attributeLabels() {
 		return array(
 			'id' => Yii::t('app', 'ID'),
-			'name' => Yii::t('app', 'Name'),
-			'person' => Yii::t('app', 'Person'),
+			'name' => Yii::t('app', '이름'),
+			'person' => Yii::t('app', '인원수'),
 			'place_id' => null,
-			'area' => Yii::t('app', 'Area'),
-			'areatype' => Yii::t('app', 'Areatype'),
-			'contactnumber' => Yii::t('app', 'Contactnumber'),
-			'workstart' => Yii::t('app', 'Workstart'),
-			'workto' => Yii::t('app', 'Workto'),
+			'area' => Yii::t('app', '면적'),
+			'areatype' => Yii::t('app', '단위'),
+			'contactnumber' => Yii::t('app', '연락처'),
+			'workstart' => Yii::t('app', '업무 시작'),
+			'workto' => Yii::t('app', '업무 종료'),
 			'place' => null,
 			'roomCharges' => null,
 			'roomOptions' => null,
@@ -95,7 +95,7 @@ abstract class BaseRoom extends GxActiveRecord {
 	    $id=1;
 	  if($this->isNewRecord)
 	    $this->create_user_id=$id;
-	  $this->update_user_id=$id;
+	    $this->update_user_id=$id;
 	  return parent::beforeSave();
 	}
 	

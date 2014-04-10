@@ -26,7 +26,7 @@ abstract class BaseOption extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'Option|Options', $n);
+		return Yii::t('app', '옵션|옵션들', $n);
 	}
 
 	public static function representingColumn() {

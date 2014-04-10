@@ -86,35 +86,9 @@ public function accessRules() {
 			fb(isset($_POST['RoomCharge']));
 			if (isset($_POST['RoomCharge'])) {
 			  $model->roomCharges = $_POST['RoomCharge'];
-			  fb($model->roomCharges);
-			  
+//			  fb($model->roomCharges);  
 			  $model->saveWithRelated('roomCharges');
 			}
-			  /*
-			  $charges = array();
-
-			  foreach ($_POST['RoomCharge'] as $item_post){
-			    $charge = null;
-			    if(!empty($item_post['id'])){
-			     //기존에 있는거라 
-			     fb("NOT INTENDED");
-//			      $charge = findCharge($model, $item_post['id']);
-			    }
-			    if(is_null($charge)){
-			    	$charge = new RoomCharge();
-			    }
-			    //TODO : ADD ROOM ID
-			    
-			    unset($item_post['id']); // REMOVE PK
-			    $charge->attributes = $item_post;
-			    array_push($charges, $charge);
-			    
-			   }
-
-			   fb($charges);
-			  $model->roomCharges = $charges;  
-			   */
-			
 			
 			if ($model->save()) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -178,7 +152,15 @@ public function accessRules() {
 	}
 
 	public function actionIndex() {
-		$dataProvider = new CActiveDataProvider('Room');
+		$dataProvider = new CActiveDataProvider('Room',array(
+			
+		  'sort'=>array(
+                    'defaultOrder'=>'create_time DESC',
+                ),
+		  'pagination' => array('pageSize' => 6),
+		  
+		)
+		);
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));

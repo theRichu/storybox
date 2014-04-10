@@ -6,8 +6,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-	array('label'=>Yii::t('app', 'Create') . ' ' . Room::label(), 'url' => array('create')),
-	array('label'=>Yii::t('app', 'Manage') . ' ' . Room::label(2), 'url' => array('admin')),
+	array('label'=>Room::label() . ' ' . Yii::t('app', '등록하기') , 'url' => array('create')),
+	array('label'=>Room::label(2) . ' ' . Yii::t('app', '관리하기') , 'url' => array('admin')),
 );
 ?>
 

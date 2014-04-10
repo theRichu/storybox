@@ -6,12 +6,12 @@ $this->breadcrumbs = array(
 );
 
 $this->menu=array(
-	array('label'=>Yii::t('app', 'List') . ' ' . $model->label(2), 'url'=>array('index')),
-	array('label'=>Yii::t('app', 'Create') . ' ' . $model->label(), 'url'=>array('create')),
-  array('label'=>Yii::t('app', 'Add Room') . ' ' . $model->label(), 'url'=>array('room/create','pid'=>$model->id)),
-	array('label'=>Yii::t('app', 'Update') . ' ' . $model->label(), 'url'=>array('update', 'id' => $model->id)),
-	array('label'=>Yii::t('app', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>Yii::t('app', 'Manage') . ' ' . $model->label(2), 'url'=>array('admin')),
+  array('label'=>'여기에 ' . Yii::t('app', '강의실 등록하기') , 'url'=>array('room/create','pid'=>$model->id)),
+  array('label'=>$model->label(2). ' ' . Yii::t('app', '더 보기'), 'url'=>array('index')),
+	array('label'=>$model->label(). ' ' . Yii::t('app', '등록하기'), 'url'=>array('create')),
+  array('label'=>$model->label(). ' ' . Yii::t('app', '수정') , 'url'=>array('update', 'id' => $model->id)),
+	array('label'=>$model->label(). ' ' . Yii::t('app', '삭제') , 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>$model->label(2). ' ' . Yii::t('app', '관리하기') , 'url'=>array('admin')),
 );
 ?>
 

@@ -6,12 +6,12 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-	array('label'=>Yii::t('app', 'Create') . ' ' . Place::label(), 'url' => array('create')),
-	array('label'=>Yii::t('app', 'Manage') . ' ' . Place::label(2), 'url' => array('admin')),
+	array('label'=>Place::label(). ' ' . Yii::t('app', '등록하기'), 'url' => array('create')),
+	array('label'=>Place::label(2). ' ' .  Yii::t('app', '관리하기'), 'url' => array('admin')),
 );
 ?>
 
-<h1><?php echo GxHtml::encode(Place::label(2)); ?></h1>
+<h1><?php echo GxHtml::encode(Place::label()); ?></h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
