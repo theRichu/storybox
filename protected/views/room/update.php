@@ -18,5 +18,6 @@ $this->menu = array(
 
 <?php
 $this->renderPartial('_form', array(
-		'model' => $model));
+		'model' => $model
+));
 ?>

@@ -63,6 +63,7 @@ abstract class BaseRoomOption extends GxActiveRecord {
 	 */
 	protected function beforeSave()
 	{
+	  fb("before save");
 	  if(null !== Yii::app()->user)
 	    $id=Yii::app()->user->id;
 	  else

@@ -19,6 +19,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+	  'application.extensions.TabularInputManager.TabularInputManager',
 	  'ext.giix-components.*',
 	  'ext.eoauth.*',
 	  'ext.eoauth.lib.*',

@@ -6,9 +6,10 @@ public function filters() {
 	return array(
 			'accessControl', 
 	    'placeContext + create', //check to ensure valid project context
-	  	 
 			);
 }
+
+
 
 public function accessRules() {
 	return array(
@@ -74,23 +75,60 @@ public function accessRules() {
 	}
 
 	public function actionCreate() {
-		$model = new Room;
+	   
+		$model = new Room;	
 		$model->place_id = $this->_place->id;
-		
-		$this->performAjaxValidation($model, 'room-form');
 
+		$this->performAjaxValidation($model, 'room-form');
+		
 		if (isset($_POST['Room'])) {
 			$model->setAttributes($_POST['Room']);
+			fb(isset($_POST['RoomCharge']));
+			if (isset($_POST['RoomCharge'])) {
+			  $model->roomCharges = $_POST['RoomCharge'];
+			  fb($model->roomCharges);
+			  
+			  $model->saveWithRelated('roomCharges');
+			}
+			  /*
+			  $charges = array();
 
+			  foreach ($_POST['RoomCharge'] as $item_post){
+			    $charge = null;
+			    if(!empty($item_post['id'])){
+			     //기존에 있는거라 
+			     fb("NOT INTENDED");
+//			      $charge = findCharge($model, $item_post['id']);
+			    }
+			    if(is_null($charge)){
+			    	$charge = new RoomCharge();
+			    }
+			    //TODO : ADD ROOM ID
+			    
+			    unset($item_post['id']); // REMOVE PK
+			    $charge->attributes = $item_post;
+			    array_push($charges, $charge);
+			    
+			   }
+
+			   fb($charges);
+			  $model->roomCharges = $charges;  
+			   */
+			
+			
 			if ($model->save()) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
 					$this->redirect(array('view', 'id' => $model->id));
 			}
+			//$roomOptionManager->save($application);
+			
 		}
-
-		$this->render('create', array( 'model' => $model));
+		$this->render('create', array(
+		 // 'roomOptionManager' => $roomOptionManager, 
+		  'model' => $model,
+		));
 	}
 
 	public function actionUpdate($id) {
@@ -100,10 +138,28 @@ public function accessRules() {
 
 		if (isset($_POST['Room'])) {
 			$model->setAttributes($_POST['Room']);
-
+			if (isset($_POST['RoomCharge'])) {
+			  $model->roomCharges = $_POST['RoomCharge'];
+			  fb($model->roomCharges);
+			  	
+			  $model->saveWithRelated('roomCharges');
+			}
+			
+			//fb($model->getAttributes());
+			
 			if ($model->save()) {
 				$this->redirect(array('view', 'id' => $model->id));
 			}
+		}
+		if(isset($_POST['RoomOption'])){
+		  foreach($_POST['RoomOption'] as $roomOption)
+		  {
+		 //   $model_option = $this->loadModel($roomOption->)
+		    //do something with $item
+		  }
+		  
+		  $model->setAttributes($_POST['RoomOption']);
+		  
 		}
 
 		$this->render('update', array(
@@ -139,6 +195,8 @@ public function accessRules() {
 			'model' => $model,
 		));
 	}
+
+	
 	
 	/**
 	 * @var private property containing the associated Project model instance.
@@ -160,9 +218,9 @@ public function accessRules() {
 	    {
 	      throw new CHttpException(404,'The requested place does not exist.');
 	    }
-	    }
+	  }
 	    return $this->_place;
-	    }
+	 }
 	    /**
 	     * In-class defined filter method, configured for use in the above filters()
 	     * method. It is called before the actionCreate() action method is run in

@@ -337,6 +337,7 @@ abstract class GxActiveRecord extends CActiveRecord {
 	 * @return boolean Whether the saving succeeds.
 	 * @see pivotModels
 	 */
+	/*
 	public function saveWithRelated($relatedData, $runValidation = true, $attributes = null, $options = array()) {
 		// Merge the specified options with the default options.
 		$options = array_merge(
@@ -385,7 +386,7 @@ abstract class GxActiveRecord extends CActiveRecord {
 			throw $ex;
 		}
 		return true;
-	}
+	}*/
 
 	/**
 	 * Saves the MANY_MANY relations of this record.

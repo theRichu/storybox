@@ -64,6 +64,7 @@ class RoomOptionController extends Controller
 	 */
 	public function actionCreate()
 	{
+	  fb("Option Controller Create");
 		$model=new RoomOption;
 		$model->room_id = $this->_room->id;
 		
@@ -109,7 +110,9 @@ class RoomOptionController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-		$model=$this->loadModel($id);
+	  fb("Option Controller Update");
+	   
+	  $model=$this->loadModel($id);
 		
 		
 		// Uncomment the following line if AJAX validation is needed

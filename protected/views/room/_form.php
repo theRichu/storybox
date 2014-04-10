@@ -6,7 +6,7 @@
 	'enableAjaxValidation' => true,
   'htmlOptions' => array(
         'enctype' => 'multipart/form-data',
-    ),
+   ),
 ));
 ?>
 
@@ -43,21 +43,81 @@
 		</div><!-- row -->
 		<div class="row">
 		<?php echo $form->labelEx($model,'workstart'); ?>
-		<?php echo $form->textField($model, 'workstart'); ?>
+		<?php 
+        $this->widget(
+            'bootstrap.widgets.TbTimePicker',
+            array(
+                'name' => 'Room[workstart]',
+                'value' => '09:00',
+                'noAppend' => true,
+                'options' => array(
+                    'disableFocus' => true, // mandatory
+                    'showMeridian' => false // irrelevant
+                )
+            )
+        );        		
+		?>
 		<?php echo $form->error($model,'workstart'); ?>
 		</div><!-- row -->
+		
 		<div class="row">
 		<?php echo $form->labelEx($model,'workto'); ?>
-		<?php echo $form->textField($model, 'workto'); ?>
+				<?php 
+        $this->widget(
+            'bootstrap.widgets.TbTimePicker',
+            array(
+                'name' => 'Room[workto]',
+                'value' => '18:00',
+                'noAppend' => true,
+                'options' => array(
+                  'disableFocus' => true, // mandatory
+                  'showMeridian' => false // irrelevant
+                )
+            )
+        );        		
+		?>
 		<?php echo $form->error($model,'workto'); ?>
 		</div><!-- row -->
 
+		
+		
+		
 
+		<div class="row">
+		<?php 
+		$charges = $model->roomCharges;
+		
+		$this->widget('ext.widgets.tabularinput.XTabularInput',array(
+      'models'=>$charges,
+      'containerTagName'=>'table',
+      'headerTagName'=>'thead',
+      'header'=>'
+          <tr>
+              <td>설명</td>
+              <td>가격</td>
+              <td></td>
+          </tr>
+      ',
+      'inputContainerTagName'=>'tbody',
+      'inputTagName'=>'tr',
+      'inputView'=>'extensions/_roomCharge',
+      'inputUrl'=>$this->createUrl('request/addRoomCharge'),
+      'addTemplate'=>'<tbody><tr><td colspan="4">{link}</td></tr></tbody>',
+      'addLabel'=>Yii::t('ui','Add new Price'),
+      'addHtmlOptions'=>array('class'=>'blue pill full-width'),
+      'removeTemplate'=>'<td>{link}</td>',
+      'removeLabel'=>Yii::t('ui','Delete'),
+      'removeHtmlOptions'=>array('class'=>'red pill'),
+    ));
+    ?>
+		</div><!-- row -->
+
+		<?php /* 
 		<label><?php echo GxHtml::encode($model->getRelationLabel('roomCharges')); ?></label>
 		<?php echo $form->checkBoxList($model, 'roomCharges', GxHtml::encodeEx(GxHtml::listDataEx(RoomCharge::model()->findAllAttributes(null, true)), false, true)); ?>
 		<label><?php echo GxHtml::encode($model->getRelationLabel('roomOptions')); ?></label>
 		<?php echo $form->checkBoxList($model, 'roomOptions', GxHtml::encodeEx(GxHtml::listDataEx(RoomOption::model()->findAllAttributes(null, true)), false, true)); ?>
-
+ */ ?>
 <?php
 echo GxHtml::submitButton(Yii::t('app', 'Save'));
 $this->endWidget();

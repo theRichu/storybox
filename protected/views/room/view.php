@@ -60,7 +60,7 @@ $this->menu=array(
 //'itemView'=>'/roomCharge/_view',
 )); ?>
 
-<?php
+<?php /*
 
 $this->widget(
     'bootstrap.widgets.TbButton',
@@ -82,6 +82,7 @@ $this->beginWidget('bootstrap.widgets.TbModal', array('id' => 'CView'));
 <a data-dismiss="modal">&times;</a>
 <h4 id="content_header"></h4>
 </div>
+
 <div>
 </div>    
 <?php $this->endWidget(); ?>
@@ -118,6 +119,7 @@ $('#content_header').html(CHeader);
 </script>
 
 
+*/?>
 <br />
 <h1>Room Options</h1>
 <?php $this->widget('zii.widgets.CListView', array(

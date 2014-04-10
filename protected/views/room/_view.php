@@ -22,7 +22,6 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('contactnumber')); ?>:
 	<?php echo GxHtml::encode($data->contactnumber); ?>
 	<br />
-
 	<?php echo GxHtml::encode($data->getAttributeLabel('workstart')); ?>:
 	<?php echo GxHtml::encode($data->workstart); ?>
 	<br />

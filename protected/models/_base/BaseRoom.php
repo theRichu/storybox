@@ -99,7 +99,7 @@ abstract class BaseRoom extends GxActiveRecord {
 	  return parent::beforeSave();
 	}
 	
-	
+
 	public function behaviors()
 	{
 	  return array(
@@ -108,6 +108,9 @@ abstract class BaseRoom extends GxActiveRecord {
 	      'createAttribute' => 'create_time',
 	      'updateAttribute' => 'update_time',
 	      'setUpdateOnCreate' => true,
+	    ),
+	    'ESaveRelatedBehavior' => array(
+	      'class' => 'application.components.ESaveRelatedBehavior'
 	    ),
 	  );
 	}
